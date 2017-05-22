@@ -5,6 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const SassLintPlugin = require('sasslint-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name].css",
@@ -13,7 +14,14 @@ const extractSass = new ExtractTextPlugin({
 
 const copy = new CopyWebpackPlugin([
   {
-
+    context: './src',
+    from: 'styles/fonts',
+    to: 'fonts'
+  },
+  {
+    context: './src',
+    from: 'assets/images',
+    to: 'img'
   }
 ]);
 const config = {
@@ -22,6 +30,7 @@ const config = {
     path: path.resolve(__dirname, '../public'),
     filename: 'bundle.js'
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -44,10 +53,16 @@ const config = {
         use: extractSass.extract({
             use: [
                 {
-                  loader: "css-loader"
+                  loader: "css-loader",
+                  options: {
+                    sourceMap: true
+                  }
                 },
                 {
-                  loader: "sass-loader"
+                  loader: "sass-loader",
+                  options: {
+                    sourceMap: true
+                  }
                 }
               ],
             // use style-loader in development
@@ -68,7 +83,11 @@ const config = {
       failOnError: false
     }),
     new LiveReloadPlugin(),
-    extractSass
+    new CleanWebpackPlugin(['public'], {
+      root: path.resolve(__dirname, '../')
+    }),
+    extractSass,
+    copy
   ]
 };
 

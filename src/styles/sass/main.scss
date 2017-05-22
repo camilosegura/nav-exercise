@@ -1,7 +1,8 @@
-@import "fonts.css";
+@import 'fonts.css';
+$color: #ec008c;
 
 body {
-  background: #ec008c;
+  background: $color;
   color: #fff;
 }
 

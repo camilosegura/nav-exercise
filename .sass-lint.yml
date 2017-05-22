@@ -1,0 +1,13 @@
+files:
+  include: '**/*.s+(a|c)ss'
+options:
+  formatter: stylish
+rules:
+  mixins-before-declarations:
+    - 1
+    - exclude: ['respond-to', 'respond-range']
+  no-important: 2
+  no-ids: 2
+  nesting-depth:
+    - 1
+    - max-depth: 8

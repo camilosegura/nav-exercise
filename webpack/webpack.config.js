@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const SassLintPlugin = require('sasslint-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
+    filename: "css/[name].css",
     disable: process.env.NODE_ENV === "development"
 });
 
@@ -60,6 +62,12 @@ const config = {
       filename: '../public/index.html',
       template: './src/markup/pages/index.hbs'
     }),
+    new SassLintPlugin({
+      ignorePlugins: ['extract-text-webpack-plugin'],
+      context: './src',
+      failOnError: false
+    }),
+    new LiveReloadPlugin(),
     extractSass
   ]
 };

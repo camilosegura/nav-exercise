@@ -9,6 +9,11 @@ const extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 
+const copy = new CopyWebpackPlugin([
+  {
+
+  }
+]);
 const config = {
   entry: './src/scripts/main.js',
   output: {
@@ -17,6 +22,12 @@ const config = {
   },
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
       {
         test: /\.(js)$/,
         use: 'babel-loader',

@@ -1,3 +1,3 @@
 export default function a() {
-  console.log('importantt')
+  console.log('importantt');
 }

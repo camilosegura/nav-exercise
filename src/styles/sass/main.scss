@@ -1,25 +1,17 @@
-@import 'reset';
-@import 'fonts.css';
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/variables';
+@import 'components/nav';
 
-$color: #ec008c;
 
-body {
-  background: $color;
-  color: #fff;
-}
-
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
-  letter-spacing: -0.06em;
-  text-align: center;
-}
-
-p {
-  font: 14vmin/24 Galaxie;
-}
+// h1 {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+//   margin: 0;
+//   font: 20vmin/1 HUGEAvantGardeBold;
+//   letter-spacing: -0.06em;
+//   text-align: center;
+// }

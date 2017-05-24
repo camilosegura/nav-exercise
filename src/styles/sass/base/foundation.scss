@@ -1,0 +1,27 @@
+/// Headline styles
+/// @group copy
+.headline {
+  font: 44px/48 HUGEAvantGardeBold;
+
+  #{$lg-breakpoint} {
+    font: 120px/132;
+  }
+
+}
+
+/// Paragraph styles
+/// @group copy
+.copy {
+  font: 14px/24 Galaxie;
+
+  #{$lg-breakpoint} {
+    font: 24px/36;
+  }
+
+}
+
+/// Copyright styles
+/// @group copy
+.copyright {
+  font: 12px/16 Helvetica;
+}

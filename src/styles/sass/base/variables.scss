@@ -1,0 +1,26 @@
+/// Whit
+/// @group colors
+/// @access public
+/// @type Number
+$white: #fff;
+/// Magenta
+/// @group colors
+/// @access public
+/// @type Number
+$magenta: #ec008c;
+/// Light Gray
+/// @group colors
+/// @access public
+/// @type Number
+$light-gray: #eee;
+/// Translucent Black
+/// @group colors
+/// @access public
+/// @type String
+$translucent-black: rgba(0, 0, 0, .5);
+/// Desktop Breakpoint
+/// @group breakpoint
+/// @access public
+/// @type String
+$lg-breakpoint: 'only screen and (min-width: 768px)';
+

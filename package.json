@@ -13,7 +13,7 @@
   },
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "start": "npm-run-all --parallel server build",
     "server": "node ./bin/www",
     "build": "webpack --config webpack/webpack.config.js --watch",

@@ -36,11 +36,11 @@ class Markup {
     let i;
 
     if (html.tagName.toLowerCase() === tag.toLowerCase()) {
-      html.setAttribute('class', className);
+      html.classList.add(className);
     }
 
     for (i = 0; i < length; i++) {
-      $elements[i].setAttribute('class', className);
+      $elements[i].classList.add(className);
     }
 
     return html;
@@ -51,13 +51,13 @@ class Markup {
 
     if (level === 1) {
       if (tag === 'ul') {
-        html.setAttribute('class', className);
+        html.classList.add(className);
       } else {
         children.forEach((child) => {
           if (tag === 'a') {
-            child.children[0].setAttribute('class', className);
+            child.children[0].classList.add(className);
           } else if (tag === 'li') {
-            child.setAttribute('class', className);
+            child.classList.add(className);
           }
         });
       }

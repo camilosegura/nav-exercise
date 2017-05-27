@@ -12,10 +12,10 @@
 /// Paragraph styles
 /// @group copy
 .copy {
-  font: 14px/24 Galaxie;
+  font: 14px/24px Galaxie;
 
   #{$lg-breakpoint} {
-    font: 24px/36;
+    font: 24px/36px;
   }
 
 }
@@ -23,5 +23,5 @@
 /// Copyright styles
 /// @group copy
 .copyright {
-  font: 12px/16 Helvetica;
+  font: 12px/16px Helvetica;
 }

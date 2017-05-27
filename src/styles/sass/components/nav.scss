@@ -1,13 +1,29 @@
 /// Navigation styles
 /// @group components
 .nav {
+  background-color: $magenta;
+  position: relative;
+
+  .link {
+    text-decoration: none;
+  }
   /// Primary links
   .primary {
-    font: 21px/48 HUGEAvantGardeBold;
+    color: $white;
+    font: 21px/48px HUGEAvantGardeBold;
+    padding: 24px;
   }
 
-  /// Primary links
+  /// secondary links
   .secondary {
-    font: 16px/48 Galaxie;
+    font: 16px/48px Galaxie;
+  }
+
+  .primary-list-item {
+    display: inline-block;
+  }
+
+  .secondary-list {
+    position: absolute;
   }
 }

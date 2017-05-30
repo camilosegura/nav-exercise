@@ -1,0 +1,14 @@
+.overlay {
+  display: none;
+  z-index: 1;
+
+  &.active {
+    background-color: $translucent-black;
+    bottom:0px;
+    display: block;
+    left:0px;
+    right:0px;
+    position:absolute;
+    top:0px;
+  }
+}

@@ -1,20 +1,33 @@
+.container {
+  overflow: hidden;
+}
 /// Headline styles
 /// @group copy
 .headline {
-  font: 44px/48 HUGEAvantGardeBold;
+  color: $white;
+  font: 44px/48px HUGEAvantGardeBold;
+  left: 50%;
+  letter-spacing: -0.06em;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-  #{$lg-breakpoint} {
-    font: 120px/132;
+  @media #{$lg-breakpoint} {
+    font: 120px/132px HUGEAvantGardeBold;
   }
-
 }
 
 /// Paragraph styles
 /// @group copy
 .copy {
   font: 14px/24px Galaxie;
+  margin: auto;
+  max-width: 1016px;
+  padding: 24px;
 
-  #{$lg-breakpoint} {
+  @media #{$lg-breakpoint} {
     font: 24px/36px;
   }
 

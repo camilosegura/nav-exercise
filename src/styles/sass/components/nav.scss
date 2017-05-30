@@ -3,7 +3,28 @@
 .nav {
   background-color: $magenta;
   position: relative;
+  z-index: 2;
 
+  .nav-items {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 844px;
+  }
+
+  .logo {
+    background-image: url('/img/HUGE-white.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: 24px;
+    margin-bottom: 21px;
+    margin-left: 24px;
+    margin-right: 45px;
+    margin-top: 24px;
+    width: 60px;
+  }
+  /// All anchors styles
   .link {
     text-decoration: none;
   }
@@ -16,14 +37,45 @@
 
   /// secondary links
   .secondary {
+    color: $black;
+    display: block;
     font: 16px/48px Galaxie;
+    padding: 0 24px;
   }
 
   .primary-list-item {
     display: inline-block;
-  }
+    padding: 12px 0;
 
+    &:hover,
+    &.active {
+      background-color: $white;
+
+      .primary {
+        color: $magenta;
+      }
+    }
+
+    &.active {
+      .secondary-list {
+        background-color: $white;
+        display: block;
+      }
+    }
+  }
+  /// Secondary list links
   .secondary-list {
+    display: none;
     position: absolute;
+    top: 72px;
+  }
+  .secondary-list-item {
+    &:hover {
+      background-color: $light-gray;
+
+      .secondary {
+        color: $magenta;
+      }
+    }
   }
 }

@@ -4,18 +4,24 @@
 /// Headline styles
 /// @group copy
 .headline {
-  color: $white;
+  color: $black;
   font: 44px/48px HUGEAvantGardeBold;
-  left: 50%;
-  letter-spacing: -0.06em;
-  margin: 0;
-  position: absolute;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  padding: 24px;
   text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
 
   @media #{$lg-breakpoint} {
+    color: $white;
     font: 120px/132px HUGEAvantGardeBold;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 768px;
+    word-spacing: -12px;
   }
 }
 
@@ -23,12 +29,16 @@
 /// @group copy
 .copy {
   font: 14px/24px Galaxie;
-  margin: auto;
+
   max-width: 1016px;
-  padding: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  text-align: justify;
 
   @media #{$lg-breakpoint} {
     font: 24px/36px;
+    margin: 32px auto 0;
+
   }
 
 }

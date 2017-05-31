@@ -6,10 +6,15 @@
   z-index: 2;
 
   .nav-items {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    width: 844px;
+    background-color: $white;
+
+    @media #{$lg-breakpoint} {
+      background-color: transparent;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 844px;
+    }
   }
 
   .logo {
@@ -17,12 +22,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
-    height: 24px;
-    margin-bottom: 21px;
+    height: 20px;
     margin-left: 24px;
-    margin-right: 45px;
-    margin-top: 24px;
-    width: 60px;
+    width: 50px;
+
+    @media #{$lg-breakpoint} {
+      height: 24px;
+      margin-bottom: 21px;
+      margin-right: 45px;
+      margin-top: 24px;
+      width: 60px;
+    }
   }
   /// All anchors styles
   .link {
@@ -30,9 +40,38 @@
   }
   /// Primary links
   .primary {
-    color: $white;
+    color: $black;
+    display: block;
     font: 21px/48px HUGEAvantGardeBold;
     padding: 24px;
+    position: relative;
+
+    &::after {
+      content: '\027E9';
+      display: inline-block;
+      height: 47px;
+      position: absolute;
+      right: 24px;
+      transform: rotate(90deg);
+      width: 10px;
+
+      @media #{$lg-breakpoint} {
+        content: '';
+      }
+    }
+
+    @media #{$lg-breakpoint} {
+      color: $white;
+      display: inline;
+    }
+
+    &.up {
+      &::after {
+        animation-name: rotateUp;
+        animation-duration: 2s;
+        animation-fill-mode: both;
+      }
+    }
   }
 
   /// secondary links
@@ -44,15 +83,19 @@
   }
 
   .primary-list-item {
-    display: inline-block;
-    padding: 12px 0;
+    @media #{$lg-breakpoint} {
+      display: inline-block;
+      padding: 12px 0;
+    }
 
     &:hover,
     &.active {
       background-color: $white;
 
       .primary {
-        color: $magenta;
+        @media #{$lg-breakpoint} {
+          color: $magenta;
+        }
       }
     }
 
@@ -66,8 +109,11 @@
   /// Secondary list links
   .secondary-list {
     display: none;
-    position: absolute;
-    top: 72px;
+
+    @media #{$lg-breakpoint} {
+      position: absolute;
+      top: 72px;
+    }
   }
   .secondary-list-item {
     &:hover {

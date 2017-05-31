@@ -1,0 +1,17 @@
+.landing {
+  .image-container {
+    position: relative;
+  }
+
+  .image {
+    background-image: url('/img/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 240px;
+
+    @media #{$lg-breakpoint} {
+      height: 640px;
+    }
+  }
+}

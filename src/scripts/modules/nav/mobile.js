@@ -1,6 +1,8 @@
 class Mobile {
   constructor() {
     this.BREAKPOINT = 768;
+    this.$openIcon;
+    this.$closeIcon;
     this.$openClose;
     this.$menu;
     this.$controls;
@@ -11,6 +13,8 @@ class Mobile {
 
   init($menu, overlay) {
     this.$openClose = document.querySelector('.open-close');
+    this.$closeIcon = document.querySelector('.close');
+    this.$openIcon = document.querySelector('.open');
     this.$controls = document.querySelector('.controls');
     this.$landing = document.querySelector('.landing');
     this.$menu = $menu;
@@ -21,6 +25,7 @@ class Mobile {
 
   setEvents() {
     this.$openClose.addEventListener('click', this.onClick.bind(this));
+    this.$openClose.addEventListener('animationend', this.onAnimationend.bind(this));
     window.addEventListener('resize', this.onResize.bind(this));
   }
 
@@ -32,9 +37,16 @@ class Mobile {
     }
   }
 
+  onAnimationend() {
+    if (this.$openClose.classList.contains('open')) {
+      this.$openIcon.classList.remove('active');
+      this.$closeIcon.classList.add('active');
+    }
+  }
+
   onResize() {
     clearTimeout(this.debounce);
-    this.debounce = setTimeout(this.resize.bind(this), 250);
+    this.debounce = setTimeout(this.resize.bind(this), 10);
   }
 
   resize() {
@@ -42,11 +54,13 @@ class Mobile {
       this.$controls.style.width = `${window.innerWidth}px`;
     } else {
       this.$menu.setAttribute('aria-hidden', false);
+      this.close();
     }
   }
 
   open() {
     this.$openClose.classList.add('open');
+    this.$openClose.classList.remove('close');
     this.$openClose.setAttribute('aria-expanded', true);
     this.$menu.classList.remove('close');
     this.$menu.classList.add('open');
@@ -57,6 +71,9 @@ class Mobile {
   }
 
   close() {
+    this.$openIcon.classList.add('active');
+    this.$closeIcon.classList.remove('active');
+    this.$openClose.classList.add('close');
     this.$openClose.classList.remove('open');
     this.$openClose.setAttribute('aria-expanded', false);
     this.$menu.classList.remove('open');

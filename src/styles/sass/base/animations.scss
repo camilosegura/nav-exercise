@@ -1,20 +1,20 @@
 @keyframes rotateUp {
   from {
-    transform: rotate(90deg);
+    transform: rotate(0);
   }
 
   to {
-    transform: rotate(-90deg);
+    transform: rotate(-180deg);
   }
 }
 
 @keyframes rotateDown {
   from {
-    transform: rotate(-90deg);
+    transform: rotate(-180deg);
   }
 
   to {
-    transform: rotate(90deg);
+    transform: rotate(0);
   }
 }
 
@@ -55,5 +55,25 @@
 
   to {
     left: 280px;
+  }
+}
+
+@keyframes openButton {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: calc(100% - 72px);
+  }
+}
+
+@keyframes closeButton {
+  from {
+    left: calc(100% - 72px);
+  }
+
+  to {
+    left: 0;
   }
 }

@@ -49,8 +49,37 @@
       background-color: transparent;
       border: 0;
       height: 60px;
+      outline: none;
       padding: 0;
       position: relative;
+
+      &.open {
+        animation-name: openButton;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+
+      &.close {
+        animation-name: closeButton;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+
+      .close {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      .open {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
     }
 
     .svg {
@@ -58,10 +87,6 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-    }
-
-    .close {
-      display: none;
     }
   }
 
@@ -71,6 +96,7 @@
     @media #{$lg-breakpoint} {
       background-color: transparent;
       display: inline-block;
+      left: 130px;
       position: absolute;
       top: 0;
       width: 844px;
@@ -80,6 +106,10 @@
   .logo-container {
     background-color: $magenta;
     padding: 20px 0;
+
+    @media #{$lg-breakpoint} {
+      padding: 0;
+    }
   }
 
   .logo {
@@ -112,13 +142,12 @@
     position: relative;
 
     &::after {
-      content: '\027E9';
+      content: url(/img/chevron.png);
       display: inline-block;
-      height: 47px;
+      height: 48px;
       position: absolute;
       right: 24px;
-      transform: rotate(90deg);
-      width: 7px;
+      width: 20px;
 
       @media #{$lg-breakpoint} {
         content: '';

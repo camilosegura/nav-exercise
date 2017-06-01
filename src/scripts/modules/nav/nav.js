@@ -10,6 +10,7 @@ class Nav {
     this.overlay;
     this.mobile;
     this.$menu;
+    this.a;
   }
 
   async main(url, target, overlay) {
@@ -21,7 +22,7 @@ class Nav {
     this.setEvents();
     this.$menu = document.querySelector(target);
     this.mobile = new Mobile();
-    this.mobile.init(this.$menu);
+    this.mobile.init(this.$menu, overlay);
     this.$menu.appendChild(this.$navDOM);
   }
 
@@ -68,6 +69,7 @@ class Nav {
   onClickOuter() {
     this.removeActive();
     this.hideOverlay();
+    this.mobile.close();
   }
 
   removeActive() {

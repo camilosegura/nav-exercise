@@ -37,3 +37,23 @@
     left: -280px;
   }
 }
+
+@keyframes openLanding {
+  from {
+    left: 280px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes closeLanding {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 280px;
+  }
+}

@@ -1,4 +1,6 @@
 .landing {
+  position: relative;
+
   .image-container {
     position: relative;
   }
@@ -13,5 +15,17 @@
     @media #{$lg-breakpoint} {
       height: 640px;
     }
+  }
+
+  &.open {
+    animation-name: openLanding;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  &.close {
+    animation-name: closeLanding;
+    animation-duration: 1s;
+    animation-fill-mode: both;
   }
 }

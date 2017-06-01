@@ -1,5 +1,17 @@
 <header class="nav">
-  <nav class="menu">
-    <a href="/" class="logo" aria-label="home"></a>
+  <div class="controls">
+    <button class="open-close"
+            aria-label="open close menu"
+            aria-controls="menu"
+            aria-expanded="false">
+            {{[../../../scripts/helpers/svg]  'toggle-open' 'open'}}
+            {{[../../../scripts/helpers/svg]  'toggle-close' 'close'}}
+            </button>
+  </div>
+  <nav class="menu" id="menu" aria-hidden="true">
+    <div class="logo-container">
+      <a href="/" class="logo" aria-label="home"></a>
+    </div>
   </nav>
+  <small class="copyright">&copy; 2014 Huge. All Rights Reserved.</small>
 </header>

@@ -2,8 +2,68 @@
 /// @group components
 .nav {
   background-color: $magenta;
-  position: relative;
+  height: 100%;
+  position: absolute;
   z-index: 2;
+
+  @media #{$lg-breakpoint} {
+    height: auto;
+    position: relative;
+  }
+
+  .menu {
+    background-color: $white;
+    height: 100%;
+    left: -280px;
+    position: absolute;
+    width: 280px;
+
+    @media #{$lg-breakpoint} {
+      height: auto;
+      position: static;
+      width: auto;
+    }
+
+    &.open {
+      animation-name: openNav;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    &.close {
+      animation-name: closeNav;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+  }
+
+  .controls {
+    background-color: $magenta;
+    position: absolute;
+
+    @media #{$lg-breakpoint} {
+      display: none;
+    }
+
+    .open-close {
+      background-color: transparent;
+      border: 0;
+      height: 60px;
+      padding: 0;
+      position: relative;
+    }
+
+    .svg {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .close {
+      display: none;
+    }
+  }
 
   .nav-items {
     background-color: $white;
@@ -15,6 +75,10 @@
       top: 0;
       width: 844px;
     }
+  }
+
+  .logo-container {
+    background-color: $magenta;
   }
 
   .logo {
@@ -43,7 +107,7 @@
     color: $black;
     display: block;
     font: 21px/48px HUGEAvantGardeBold;
-    padding: 24px;
+    padding: 0 24px;
     position: relative;
 
     &::after {
@@ -53,9 +117,15 @@
       position: absolute;
       right: 24px;
       transform: rotate(90deg);
-      width: 10px;
+      width: 7px;
 
       @media #{$lg-breakpoint} {
+        content: '';
+      }
+    }
+
+    &:only-child {
+      &::after {
         content: '';
       }
     }
@@ -63,12 +133,21 @@
     @media #{$lg-breakpoint} {
       color: $white;
       display: inline;
+      padding: 24px;
     }
 
     &.up {
       &::after {
         animation-name: rotateUp;
-        animation-duration: 2s;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+    }
+
+    &.down {
+      &::after {
+        animation-name: rotateDown;
+        animation-duration: 1s;
         animation-fill-mode: both;
       }
     }
@@ -122,6 +201,16 @@
       .secondary {
         color: $magenta;
       }
+    }
+  }
+
+  .copyright {
+    bottom: 0;
+    position: absolute;
+    width: 280px;
+
+    @media #{$lg-breakpoint} {
+      display: none;
     }
   }
 }

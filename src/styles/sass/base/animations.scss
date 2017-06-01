@@ -7,3 +7,33 @@
     transform: rotate(-90deg);
   }
 }
+
+@keyframes rotateDown {
+  from {
+    transform: rotate(-90deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes openNav {
+  from {
+    left: -280px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes closeNav {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -280px;
+  }
+}

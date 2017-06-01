@@ -1,13 +1,15 @@
 import FetchData from '../../utilities/fetchData';
 import Markup from './markup';
+import Mobile from './mobile';
 
 class Nav {
   constructor() {
     this.markup  = new Markup();
-    console.log('constructor', this.markup)
     this.$navDOM;
     this.primary;
     this.overlay;
+    this.mobile;
+    this.$menu;
   }
 
   async main(url, target, overlay) {
@@ -17,8 +19,10 @@ class Nav {
     this.setMainClasses();
     this.$primary = this.$navDOM.querySelectorAll('.primary-list-item');
     this.setEvents();
-    document.querySelector(target).appendChild(this.$navDOM);
-
+    this.$menu = document.querySelector(target);
+    this.mobile = new Mobile();
+    this.mobile.init(this.$menu);
+    this.$menu.appendChild(this.$navDOM);
   }
 
   setMainClasses() {
@@ -52,6 +56,8 @@ class Nav {
       event.preventDefault();
       event.stopPropagation();
       $element.parentElement.classList.add('active');
+      $element.classList.remove('down');
+      $element.classList.add('up');
       this.showOverlay();
     } else {
       window.location.href = window.location.origin +
@@ -66,7 +72,14 @@ class Nav {
 
   removeActive() {
     this.$primary.forEach(function($el) {
-      $el.classList.remove('active');
+      if ($el.classList.contains('active')) {
+        const $child = $el.querySelector('.primary');
+
+        $el.classList.remove('active');
+        $child.classList.remove('up');
+        $child.classList.add('down');
+      }
+
     }, this);
   }
 

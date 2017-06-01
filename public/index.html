@@ -3,13 +3,48 @@
   <head>
     <title>Huge Nav Test</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
   <link href="css/main.css" rel="stylesheet"></head>
   <body>
     <div class="container">
   <header class="nav">
-    <nav class="menu">
-      <a href="/" class="logo" aria-label="home"></a>
+    <div class="controls">
+      <button class="open-close"
+              aria-label="open close menu"
+              aria-controls="menu"
+              aria-expanded="false">
+              <span class="svg open"><?xml version="1.0" encoding="utf-8"?>
+  <!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 width="72px" height="72px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+  <g>
+  	<rect x="24" y="26" fill="#FFFFFF" width="24" height="4"/>
+  	<rect x="24" y="34" fill="#FFFFFF" width="24" height="4"/>
+  	<rect x="24" y="42" fill="#FFFFFF" width="24" height="4"/>
+  </g>
+  </svg>
+  
+              </span>
+              <span class="svg close"><?xml version="1.0" encoding="utf-8"?>
+  <!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 width="72px" height="72px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+  <polygon fill="#FFFFFF" points="38.854,35.977 45.9,28.929 43.071,26.1 35.975,33.196 28.758,26.227 25.979,29.104 33.146,36.025 
+  	26.101,43.07 28.93,45.899 36.024,38.805 43.243,45.775 46.021,42.898 "/>
+  </svg>
+  
+              </span>
+              </button>
+    </div>
+    <nav class="menu" id="menu" aria-hidden="true">
+      <div class="logo-container">
+        <a href="/" class="logo" aria-label="home"></a>
+      </div>
     </nav>
+    <small class="copyright">&copy; 2014 Huge. All Rights Reserved.</small>
   </header>
   <main class="landing">
     <section>

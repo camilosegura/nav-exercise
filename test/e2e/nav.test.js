@@ -11,8 +11,6 @@ beforeEach(() => {
 });
 
 describe('Test Desktop', () => {
-
-
   it('Show overlay', () => {
     driver.findElement(By.css('.nav-items li:nth-child(3) .primary')).click();
 
@@ -25,8 +23,6 @@ describe('Test Desktop', () => {
 });
 
 describe('Test Mobile', () => {
-
-
   it('Show overlay', () => {
     driver.manage().window().setSize(500, 768);
     driver.findElement(By.css('.open-close')).click();

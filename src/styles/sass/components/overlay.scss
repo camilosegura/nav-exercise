@@ -1,7 +1,9 @@
+/// Overlay
 .overlay {
   display: none;
   z-index: 1;
 
+  /// Overlay shown
   &.active {
     background-color: $translucent-black;
     bottom: 0;

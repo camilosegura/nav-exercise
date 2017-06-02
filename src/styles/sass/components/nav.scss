@@ -6,11 +6,13 @@
   position: absolute;
   z-index: 2;
 
+  /// Nav container styles on desktop
   @media #{$lg-breakpoint} {
     height: auto;
     position: relative;
   }
 
+  /// Container nav menu styles
   .menu {
     background-color: $white;
     height: 100%;
@@ -18,18 +20,21 @@
     position: absolute;
     width: 280px;
 
+    /// Container nav menu styles in desktop
     @media #{$lg-breakpoint} {
       height: auto;
       position: static;
       width: auto;
     }
 
+    /// Animation when menu open in mobile
     &.open {
       animation-duration: 1s;
       animation-fill-mode: both;
       animation-name: openNav;
     }
 
+    /// Animation when menu close in mobile
     &.close {
       animation-duration: 1s;
       animation-fill-mode: both;
@@ -37,6 +42,7 @@
     }
   }
 
+  /// Open close button container styles
   .controls {
     background-color: $magenta;
     position: absolute;
@@ -45,6 +51,7 @@
       display: none;
     }
 
+    /// Open close button styles
     .open-close {
       background-color: transparent;
       border: 0;
@@ -53,18 +60,21 @@
       padding: 0;
       position: relative;
 
+      /// Animation when the open close button is open
       &.open {
         animation-duration: 1s;
         animation-fill-mode: both;
         animation-name: openButton;
       }
 
+      /// Animation when the open close button is close
       &.close {
         animation-duration: 1s;
         animation-fill-mode: both;
         animation-name: closeButton;
       }
 
+      /// Close icon styles
       .close {
         display: none;
 
@@ -73,6 +83,7 @@
         }
       }
 
+      /// Open icon styles
       .open {
         display: none;
 
@@ -82,6 +93,7 @@
       }
     }
 
+    /// Icon styles
     .svg {
       display: inline-block;
       position: absolute;
@@ -90,6 +102,7 @@
     }
   }
 
+  /// Nav items menu
   .nav-items {
     background-color: $white;
 
@@ -103,6 +116,7 @@
     }
   }
 
+  /// HUGE image logo container styles
   .logo-container {
     background-color: $magenta;
     padding: 20px 0;
@@ -112,6 +126,7 @@
     }
   }
 
+  /// HUGE image container
   .logo {
     background-image: url('/img/HUGE-white.png');
     background-repeat: no-repeat;
@@ -121,6 +136,7 @@
     margin-left: 24px;
     width: 50px;
 
+    /// HUGE image container in desktop
     @media #{$lg-breakpoint} {
       height: 24px;
       margin-bottom: 21px;
@@ -143,6 +159,14 @@
     padding: 0 24px;
     position: relative;
 
+    /// Primary links on desktop
+    @media #{$lg-breakpoint} {
+      color: $white;
+      display: inline;
+      padding: 24px;
+    }
+
+    /// Styles to add mobile chevron in mobile
     &::after {
       content: url('/img/chevron.png');
       display: inline-block;
@@ -151,23 +175,20 @@
       right: 24px;
       width: 20px;
 
+      /// removing the mobile chevron in desktop
       @media #{$lg-breakpoint} {
         content: '';
       }
     }
 
+    /// Removing the chevron only to links with secondary items
     &:only-child {
       &::after {
         content: '';
       }
     }
 
-    @media #{$lg-breakpoint} {
-      color: $white;
-      display: inline;
-      padding: 24px;
-    }
-
+    /// Animation to move the chevron 180 degrees up
     &.up {
       &::after {
         animation-duration: 1s;
@@ -176,6 +197,7 @@
       }
     }
 
+    /// Animation to move the chevron to default position
     &.down {
       &::after {
         animation-duration: 1s;
@@ -193,6 +215,7 @@
     padding: 0 24px;
   }
 
+  /// Primary Link container
   .primary-list-item {
     @media #{$lg-breakpoint} {
       display: inline-block;
@@ -228,6 +251,7 @@
     }
   }
 
+  // Secondary list items
   .secondary-list-item {
     &:hover {
       background-color: $light-gray;
@@ -238,12 +262,14 @@
     }
   }
 
+  /// Copyright styles in mobile
   .copyright {
     bottom: 0;
     padding: 24px;
     position: absolute;
     width: 280px;
 
+    /// Copyright hide in desktop
     @media #{$lg-breakpoint} {
       display: none;
     }

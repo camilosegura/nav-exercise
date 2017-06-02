@@ -1,3 +1,4 @@
+/// Main page content styles
 .landing {
   position: relative;
 
@@ -5,6 +6,7 @@
     position: relative;
   }
 
+  /// Image background styles
   .image {
     background-image: url('/img/background-image.jpg');
     background-position: center;
@@ -12,17 +14,20 @@
     background-size: cover;
     height: 240px;
 
+    /// Image background styles in destop
     @media #{$lg-breakpoint} {
       height: 640px;
     }
   }
 
+  /// Addanimation when open in mobile
   &.open {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: openLanding;
   }
 
+  /// Addanimation when close in mobile
   &.close {
     animation-duration: 1s;
     animation-fill-mode: both;

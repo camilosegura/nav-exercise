@@ -1,4 +1,4 @@
-import Markup from '../src/scripts/modules/nav/markup';
+import Markup from '../../src/scripts/modules/nav/markup';
 
 let markup = new Markup();
 let html;
@@ -144,21 +144,21 @@ describe('Modify element', () => {
       className = 'link';
       tag = 'a';
 
-      expect(markup.addClass(html, tag, className).outerHTML).toBe('<ul><li><a href="#/about/what-we-do" class="link">What we do</a><ul><li><a href="#/about/how-we-work" class="link">How we work</a></li><li><a href="#/about/leadership" class="link">Leadership</a></li></ul></li></ul>')
+      expect(Markup.addClass(html, tag, className).outerHTML).toBe('<ul><li><a href="#/about/what-we-do" class="link">What we do</a><ul><li><a href="#/about/how-we-work" class="link">How we work</a></li><li><a href="#/about/leadership" class="link">Leadership</a></li></ul></li></ul>')
     });
 
     it('To lists', () => {
       className = 'lists';
       tag = 'li';
 
-      expect(markup.addClass(html, tag, className).outerHTML).toBe('<ul><li class="lists"><a href="#/about/what-we-do">What we do</a><ul><li class="lists"><a href="#/about/how-we-work">How we work</a></li><li class="lists"><a href="#/about/leadership">Leadership</a></li></ul></li></ul>');
+      expect(Markup.addClass(html, tag, className).outerHTML).toBe('<ul><li class="lists"><a href="#/about/what-we-do">What we do</a><ul><li class="lists"><a href="#/about/how-we-work">How we work</a></li><li class="lists"><a href="#/about/leadership">Leadership</a></li></ul></li></ul>');
     });
 
     it('To UL', () => {
       className = 'UL';
       tag = 'ul';
 
-      expect(markup.addClass(html, tag, className).outerHTML).toBe('<ul class="UL"><li><a href="#/about/what-we-do">What we do</a><ul class="UL"><li><a href="#/about/how-we-work">How we work</a></li><li><a href="#/about/leadership">Leadership</a></li></ul></li></ul>')
+      expect(Markup.addClass(html, tag, className).outerHTML).toBe('<ul class="UL"><li><a href="#/about/what-we-do">What we do</a><ul class="UL"><li><a href="#/about/how-we-work">How we work</a></li><li><a href="#/about/leadership">Leadership</a></li></ul></li></ul>')
     });
   });
 

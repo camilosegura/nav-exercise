@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import FetchData from '../src/scripts/utilities/fetchData';
+import FetchData from '../../src/scripts/utilities/fetchData';
 
 const items = {
   key: 'value',

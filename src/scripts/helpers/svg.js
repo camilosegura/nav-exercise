@@ -1,10 +1,10 @@
-  import Handlebars from 'handlebars';
+  import Handlebars from 'handlebars/dist/handlebars.min';
   import path from 'path';
   import fs from 'fs';
 
   const svg = (svgName, className) => {
     let result = '';
-    // console.error('svgName', svgName)
+
     if (svgName) {
       try {
         result = `<span class="svg ${className}">${fs

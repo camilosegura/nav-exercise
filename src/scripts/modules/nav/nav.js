@@ -4,16 +4,16 @@ import Mobile from './mobile';
 
 class Nav {
   constructor() {
-    this.markup  = new Markup();
-    this.$navDOM;
-    this.primary;
-    this.overlay;
-    this.mobile;
-    this.$menu;
-    this.a;
+    this.markup = new Markup();
+    this.$navDOM = undefined;
+    this.primary = undefined;
+    this.overlay = undefined;
+    this.mobile = undefined;
+    this.$menu = undefined;
   }
 
   async main(url, target, overlay) {
+    const overlayProto = Object.getPrototypeOf(overlay);
     const data = await FetchData.init(url);
     this.overlay = overlay;
     this.$navDOM = this.markup.createItems(data.items);
@@ -21,13 +21,14 @@ class Nav {
     this.$primary = this.$navDOM.querySelectorAll('.primary-list-item');
     this.setEvents();
     this.$menu = document.querySelector(target);
-    this.mobile = new Mobile();
-    this.mobile.init(this.$menu, overlay);
+    this.mobile = new Mobile(this.$menu, overlay);
     this.$menu.appendChild(this.$navDOM);
+    this.canShow = Object.prototype.hasOwnProperty.call(overlayProto, 'show');
+    this.canHide = Object.prototype.hasOwnProperty.call(overlayProto, 'hide');
   }
 
   setMainClasses() {
-    this.markup.addClass(this.$navDOM, 'a', 'link')
+    Markup.addClass(this.$navDOM, 'a', 'link');
     this.markup.addClassByLevel(this.$navDOM, 'ul', 'nav-items', 1);
     this.markup.addClassByLevel(this.$navDOM, 'li', 'primary-list-item', 1);
     this.markup.addClassByLevel(this.$navDOM, 'a', 'primary', 1);
@@ -36,14 +37,16 @@ class Nav {
     this.markup.addClassByLevel(this.$navDOM, 'a', 'secondary', 2);
   }
 
+  setEventPrimary($el) {
+    $el.addEventListener('click', this.onClickPrimary.bind(this));
+  }
+
   setEvents() {
     this.$navDOM.addEventListener('click', this.onClickOuter.bind(this));
 
     this.overlay.$overlay.addEventListener('click', this.onClickOuter.bind(this));
 
-    this.$primary.forEach(function($el) {
-      $el.addEventListener('click', this.onClickPrimary.bind(this));
-    }, this);
+    this.$primary.forEach(this.setEventPrimary, this);
   }
 
   onClickPrimary(event) {
@@ -73,26 +76,25 @@ class Nav {
   }
 
   removeActive() {
-    this.$primary.forEach(function($el) {
-      if ($el.classList.contains('active')) {
-        const $child = $el.querySelector('.primary');
+    const $active = this.$navDOM.querySelector('.primary-list-item.active');
 
-        $el.classList.remove('active');
-        $child.classList.remove('up');
-        $child.classList.add('down');
-      }
+    if ($active) {
+      const $child = $active.querySelector('.primary');
 
-    }, this);
+      $active.classList.remove('active');
+      $child.classList.remove('up');
+      $child.classList.add('down');
+    }
   }
 
   hideOverlay() {
-    if (this.overlay && this.overlay.__proto__.hasOwnProperty('hide')) {
+    if (this.overlay && this.canHide) {
       this.overlay.hide();
     }
   }
 
   showOverlay() {
-    if (this.overlay && this.overlay.__proto__.hasOwnProperty('show')) {
+    if (this.overlay && this.canShow) {
       this.overlay.show();
     }
   }

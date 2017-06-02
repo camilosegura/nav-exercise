@@ -1,24 +1,18 @@
 class Mobile {
-  constructor() {
+  constructor($menu, overlay) {
+    const overlayProto = Object.getPrototypeOf(overlay);
     this.BREAKPOINT = 768;
-    this.$openIcon;
-    this.$closeIcon;
-    this.$openClose;
-    this.$menu;
-    this.$controls;
-    this.$landing;
-    this.overlay;
-    this.debounce;
-  }
-
-  init($menu, overlay) {
-    this.$openClose = document.querySelector('.open-close');
-    this.$closeIcon = document.querySelector('.close');
     this.$openIcon = document.querySelector('.open');
+    this.$closeIcon = document.querySelector('.close');
+    this.$openClose = document.querySelector('.open-close');
+    this.$menu = $menu;
     this.$controls = document.querySelector('.controls');
     this.$landing = document.querySelector('.landing');
-    this.$menu = $menu;
     this.overlay = overlay;
+    this.canShow = Object.prototype.hasOwnProperty.call(overlayProto, 'show');
+    this.canHide = Object.prototype.hasOwnProperty.call(overlayProto, 'hide');
+    this.debounce = undefined;
+
     this.setEvents();
     this.onResize();
   }
@@ -54,7 +48,10 @@ class Mobile {
       this.$controls.style.width = `${window.innerWidth}px`;
     } else {
       this.$menu.setAttribute('aria-hidden', false);
-      this.close();
+
+      if (this.$menu.classList.contains('open')) {
+        this.close();
+      }
     }
   }
 
@@ -85,13 +82,13 @@ class Mobile {
   }
 
   hideOverlay() {
-    if (this.overlay && this.overlay.__proto__.hasOwnProperty('hide')) {
+    if (this.overlay && this.canHide) {
       this.overlay.hide();
     }
   }
 
   showOverlay() {
-    if (this.overlay && this.overlay.__proto__.hasOwnProperty('show')) {
+    if (this.overlay && this.canShow) {
       this.overlay.show();
     }
   }

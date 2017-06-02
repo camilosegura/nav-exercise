@@ -103,10 +103,7 @@ nav {
 blockquote,
 q {
   quotes: none;
-}
 
-blockquote,
-q {
   &::before,
   &::after {
     content: '';

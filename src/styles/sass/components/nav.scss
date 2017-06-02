@@ -25,15 +25,15 @@
     }
 
     &.open {
-      animation-name: openNav;
       animation-duration: 1s;
       animation-fill-mode: both;
+      animation-name: openNav;
     }
 
     &.close {
-      animation-name: closeNav;
       animation-duration: 1s;
       animation-fill-mode: both;
+      animation-name: closeNav;
     }
   }
 
@@ -54,15 +54,15 @@
       position: relative;
 
       &.open {
-        animation-name: openButton;
         animation-duration: 1s;
         animation-fill-mode: both;
+        animation-name: openButton;
       }
 
       &.close {
-        animation-name: closeButton;
         animation-duration: 1s;
         animation-fill-mode: both;
+        animation-name: closeButton;
       }
 
       .close {
@@ -129,10 +129,12 @@
       width: 60px;
     }
   }
+
   /// All anchors styles
   .link {
     text-decoration: none;
   }
+
   /// Primary links
   .primary {
     color: $black;
@@ -142,7 +144,7 @@
     position: relative;
 
     &::after {
-      content: url(/img/chevron.png);
+      content: url('/img/chevron.png');
       display: inline-block;
       height: 48px;
       position: absolute;
@@ -168,17 +170,17 @@
 
     &.up {
       &::after {
-        animation-name: rotateUp;
         animation-duration: 1s;
         animation-fill-mode: both;
+        animation-name: rotateUp;
       }
     }
 
     &.down {
       &::after {
-        animation-name: rotateDown;
         animation-duration: 1s;
         animation-fill-mode: both;
+        animation-name: rotateDown;
       }
     }
   }
@@ -215,6 +217,7 @@
       }
     }
   }
+
   /// Secondary list links
   .secondary-list {
     display: none;
@@ -224,6 +227,7 @@
       top: 72px;
     }
   }
+
   .secondary-list-item {
     &:hover {
       background-color: $light-gray;

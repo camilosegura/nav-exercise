@@ -7,9 +7,9 @@
 
   .image {
     background-image: url('/img/background-image.jpg');
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 240px;
 
     @media #{$lg-breakpoint} {
@@ -18,14 +18,14 @@
   }
 
   &.open {
-    animation-name: openLanding;
     animation-duration: 1s;
     animation-fill-mode: both;
+    animation-name: openLanding;
   }
 
   &.close {
-    animation-name: closeLanding;
     animation-duration: 1s;
     animation-fill-mode: both;
+    animation-name: closeLanding;
   }
 }

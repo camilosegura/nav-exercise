@@ -30,16 +30,15 @@ class Markup {
     return $ul;
   }
 
-  addClass(html, tag, className) {
+  static addClass(html, tag, className) {
     const $elements = html.getElementsByTagName(tag);
     const length = $elements.length;
-    let i;
 
     if (html.tagName.toLowerCase() === tag.toLowerCase()) {
       html.classList.add(className);
     }
 
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < length; i += 1) {
       $elements[i].classList.add(className);
     }
 

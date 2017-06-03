@@ -11,6 +11,7 @@ Test project with
 ```
 $ npm test
 ```
+To run E2E test the project should be running in another terminal tab.
 
 Create sass documentation
 ```
